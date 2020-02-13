@@ -16,7 +16,7 @@ entity decoder_3to8 is
 	     D4: out std_logic;
 	     D5: out std_logic;
 	     D6: out std_logic;
-	     D7: out std_logic;
+	     D7: out std_logic
 	);
 end decoder_3to8;
 
