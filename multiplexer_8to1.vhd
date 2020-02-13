@@ -18,7 +18,7 @@ entity multiplexer_8to1 is
 	      s1: in std_logic;
 	      s3: in std_logic;
 	      
-	      Z: out std_logic_vector(15 downto 0);
+	      Z: out std_logic_vector(15 downto 0)
 	);
 end multiplexer_8to1;
 
