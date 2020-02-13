@@ -22,7 +22,7 @@ architecture Behavioral of decoder_3to8_tb is
 	     	D4: out std_logic;
 	     	D5: out std_logic;
 	    	D6: out std_logic;
-	     	D7: out std_logic;
+	     	D7: out std_logic
 	);
 	end component;
 
