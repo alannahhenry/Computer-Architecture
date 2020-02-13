@@ -8,7 +8,7 @@ entity reg16 is
 	Port(
 	     D: in std_logic_vector(15 downto 0);
 	     load, Clk: std_logic;
-	     Q: out std_logic_vector(15 downto 0);
+	     Q: out std_logic_vector(15 downto 0)
 	);
 
 end reg16;

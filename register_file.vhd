@@ -25,8 +25,8 @@ entity register_file is
 		reg4: out std_logic_vector(15 downto 0);
 		reg5: out std_logic_vector(15 downto 0);
 		reg6: out std_logic_vector(15 downto 0);
-		reg7: out std_logic_vector(15 downto 0);
-
+		reg7: out std_logic_vector(15 downto 0)
+    );
 end register_file;
 
 architecture Behavioral of register_file is
@@ -35,7 +35,7 @@ architecture Behavioral of register_file is
 	Port(
 	     D: in std_logic_vector(15 downto 0);
 	     load, Clk: std_logic;
-	     Q: out std_logic_vector(15 downto 0);
+	     Q: out std_logic_vector(15 downto 0)
 	);
 	end component;
 	
@@ -52,7 +52,7 @@ architecture Behavioral of register_file is
 	     D4: out std_logic;
 	     D5: out std_logic;
 	     D6: out std_logic;
-	     D7: out std_logic;
+	     D7: out std_logic
 	);
 	end component;
 	
@@ -61,7 +61,7 @@ architecture Behavioral of register_file is
 	      i0: in std_logic_vector(15 downto 0);
 	      i1: in std_logic_vector(15 downto 0);
 	      s: in std_logic;
-	      Z: out std_logic_vector(15 downto 0);
+	      Z: out std_logic_vector(15 downto 0)
 	);
 	end component;
 
@@ -78,21 +78,21 @@ architecture Behavioral of register_file is
 	      
 	      s0: in std_logic;
 	      s1: in std_logic;
-	      s3: in std_logic;
+	      s2: in std_logic;
 	      
-	      Z: out std_logic_vector(15 downto 0);
+	      Z: out std_logic_vector(15 downto 0)
 	);
 	end component;
 
 signal load_reg0, load_reg1, load_reg2, load_reg3, load_reg4, load_reg5, load_reg6, load_reg7 : std_logic;
-signal reg0_q, reg1_d, reg2_q, reg3_q, reg4_q, reg5_q, reg6_q, reg7_q, data_src_mux_out, src_reg: std_logic_vector(15 downto 0);
+signal reg0_q, reg1_q, reg2_q, reg3_q, reg4_q, reg5_q, reg6_q, reg7_q, data_src_mux_out, src_reg: std_logic_vector(15 downto 0);
 
 
 begin
 -- port maps;
 
 --register0
-reg 00: reg16 PORTMAP(
+reg00: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg0,
 	Clk => Clk,
@@ -100,7 +100,7 @@ reg 00: reg16 PORTMAP(
 );
 
 --register1
-reg 01: reg16 PORTMAP(
+reg01: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg1,
 	Clk => Clk,
@@ -108,42 +108,42 @@ reg 01: reg16 PORTMAP(
 );
 
 --register2
-reg 02: reg16 PORTMAP(
+reg02: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg2,
 	Clk => Clk,
 	Q => reg2_q
 );
 --register3
-reg 03: reg16 PORTMAP(
+reg03: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg3,
 	Clk => Clk,
 	Q => reg3_q
 );
 --register4
-reg 04: reg16 PORTMAP(
+reg04: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg4,
 	Clk => Clk,
 	Q => reg4_q
 );
 --register5
-reg 05: reg16 PORTMAP(
+reg05: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg5,
 	Clk => Clk,
 	Q => reg5_q
 );
 --register6
-reg 06: reg16 PORTMAP(
+reg06: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg6,
 	Clk => Clk,
 	Q => reg6_q
 );
 --register7
-reg 07: reg16 PORTMAP(
+reg07: reg16 PORT MAP(
 	D => data_src_mux_out,
 	load => load_reg7,
 	Clk => Clk,
@@ -174,19 +174,19 @@ data_src_mux_2to1: multiplexer_2to1 PORT MAP(
 );
 
 --8:1 src register multiplexer
-Inst_mux_8to1: mulitplexer_8to1 PORT MAP(
-	i0 => req0_q,
-	i1 => req1_q,
-	i2 => req2_q,
-	i3 => req3_q,
-	i4 => req4_q,
-	i5 => req5_q,
-	i6 => req6_q,
-	i7 => req7_q,
+Inst_mux_8to1: multiplexer_8to1 PORT MAP(
+	i0 => reg0_q,
+	i1 => reg1_q,
+	i2 => reg2_q,
+	i3 => reg3_q,
+	i4 => reg4_q,
+	i5 => reg5_q,
+	i6 => reg6_q,
+	i7 => reg7_q,
 	
-	i0 => src_s0,
-	i1 => src_s1,
-	i2 => src_s2,
+	s0 => src_s0,
+	s1 => src_s1,
+	s2 => src_s2,
 
 	Z => src_reg
 );

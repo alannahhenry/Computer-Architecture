@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity reg16_tb is
 end reg16_tb;
 
-architecture reg16_tb is
+architecture Behavioral of reg16_tb is
 	component reg16 is
 		Port(
 			D: in std_logic_vector(15 downto 0);

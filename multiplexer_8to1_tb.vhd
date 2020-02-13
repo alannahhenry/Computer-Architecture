@@ -20,7 +20,7 @@ architecture Behavioral of multiplexer_8to1_tb is
 	      
 	     		s0: in std_logic;
 	      		s1: in std_logic;
-	     		s3: in std_logic;
+	     		s2: in std_logic;
 	      
 	      		Z: out std_logic_vector(15 downto 0)
 		);
@@ -37,7 +37,7 @@ architecture Behavioral of multiplexer_8to1_tb is
 
 	signal s0 : std_logic := '0';
 	signal s1 : std_logic := '0';
-	signal s1 : std_logic := '0';
+	signal s2 : std_logic := '0';
 
 	signal Z : std_logic_vector(15 downto 0):= "0000000000000000";
 
