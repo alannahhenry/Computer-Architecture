@@ -75,38 +75,85 @@ begin
 		reg6 => reg6,
 		reg7 => reg7
 	);
-	
-	process: process
-	
-	begin 
-		src_s0 <= '0';
-    		src_s1 <= '1';
-     		src_s2 <= '0';
-     		des_A0 <= '0';
-     		des_A1 <= '1';
-     		des_A2 <= '0';
-     		data_src <= '0';
-     		data <= "1111111100000000";
-     		Clk <= '0';
-     
-     		wait for 10 ns;
-     
-     		Clk <= '1';
-      
-     		wait for 10 ns;
-     
-     		data_src <= '1';
-     		des_A0 <= '0';
-     		des_A1 <= '0';
-     		des_A2 <= '0';
-     		Clk <= '0';
-     
-      		wait for 10 ns;
-      	  
-     		Clk <= '1';
-      		wait for 10 ns;
+	clk_process: process
     
-   		end process;  
+	begin
+		clk <= '0';
+		wait for clk_period/2;
+		clk <= '1';       
+ 		wait for clk_period/2;
+    	end process;	
+--2)A)
+	simulation_process :process
+	begin 
+		data_src <= '0';
+        	
+		--000
+        	wait for 10ns;
+        	
+		des_A <= '0';
+       		des_B <= '0';
+        	des_C <= '0';
+        	data <= x"0000";
+       
+		--001
+        	wait for 10ns;
+        
+		des_A <= '0';
+        	des_B <= '0';
+        	des_C <= '1';
+        	data <= x"1111";
+        
+       		 --010
+        	wait for 10ns;
+       
+		des_A0 <= '0';
+        	des_A1 <= '1';
+       		des_A2 <= '0';
+        	data <= x"2222";
+        
+      		 --011
+       		wait for 10ns;
+        
+		des_A0 <= '0';
+        	des_A1 <= '1';
+        	des_A2 <= '1';
+        	data <= x"3333";
+      
+  		--100
+		wait for 10ns;
+        
+		des_A0 <= '1';
+        	des_A1 <= '0';
+        	des_C <='0';
+       		data <= x"4444";
+        
+       		--101
+        	wait for 10ns;
+       
+		des_A <= '1';
+       		des_B ='0';
+       		des_C ='1';
+        	data <= x"5555";
+        	
+		--110
+       		wait for 10ns;
+        
+		des_A <= '1';
+		des_B <= '1';
+        	des_C <= '0';
+        	data <= x"6666";
+        
+        
+		--111
+ 		wait for 10ns;
+      
+		des_A <= '1';
+        	des_B <= '1';
+       		des_C <= '1';
+       		data <= x"7777";
+       
+    		end process;  
 
 end Behavioral;
 			
