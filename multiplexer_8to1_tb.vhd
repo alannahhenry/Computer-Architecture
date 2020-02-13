@@ -110,6 +110,6 @@ begin
 	s1 <= '1';
 	s2 <= '1';
 	wait for 5ns;
-endprocess;
+end process;
 end Behavioral;
 		
